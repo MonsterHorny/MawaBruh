@@ -16,15 +16,16 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ROM/android_manifest -b 10 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest -b 10 -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all) || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 
 # local manifest
-git clone --depth=1 https://github.com/$CIRRUS_REPO_OWNER/device_xiaomi_lavender -b x device/xiaomi/lavender
-git clone --depth=1 https://github.com/$CIRRUS_REPO_OWNER/vendor_xiaomi_lavender -b x vendor/xiaomi/lavender
-git clone --depth=1 https://github.com/$CIRRUS_REPO_OWNER/kernel_xiaomi_lavender -b x kernel/xiaomi/lavender
+git clone --depth=1 https://ImSpiDy:$my_gh_token@github.com/ImSpiDy/device_xiaomi_lavender -b x device/xiaomi/lavender
+git clone --depth=1 https://ImSpiDy:$my_gh_token@github.com/ImSpiDy/vendor_xiaomi_lavender -b x vendor/xiaomi/lavender
+git clone --depth=1 https://ImSpiDy:$my_gh_token@github.com/ImSpiDy/Xtreme_Kernel -b x kernel/xiaomi/lavender
+git clone --depth=1 https://ImSpiDy:$my_gh_token@github.com/ImSpiDy/XiaomiParts -b 4.4 vendor/XiaomiParts
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!

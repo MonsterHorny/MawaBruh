@@ -3,13 +3,15 @@ env: # Environment variables to pass to all tasks
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
 
 # store our secrets here
-    github_token: "ENCRYPTED[!82ee7e07446c86fe97dda507543443a525fec83e693679c8f84d740764987310d74262013f45a1e5a56cc54e334e8f7c!]"
+    my_gh_token: "ENCRYPTED[!82ee7e07446c86fe97dda507543443a525fec83e693679c8f84d740764987310d74262013f45a1e5a56cc54e334e8f7c!]"
+    github_token: "ENCRYPTED[4650ff5d0a0c39724e210653ce3bfac83dff48ea4d733cfafb08b6016edf2f44f12fd3015c006cfbfe78af09f9d4d32c]"
     bot_api: "ENCRYPTED[!10482e25ca82cf0efa74e4c474a9e5cb82c1b2e5545657dd1917cba34aa08ce880b37bef99a47d0a49c4bb48523144b9!]"
     chat_id: "ENCRYPTED[!c519abe30864df229179faa4e1eeaa0fde992d896ed620d45cb1f2ca25f0ee3b9373d08fb64a737c8759ae592ef9351c!]"
     git_cookies: 0
+    REAL_REPO_OWNER: "ImSpiDy"
 
 # store information about git here
-    gmail: xyz@gmail.com
+    gmail: buildbot02@gmail.com
 
 task:
     name: HormYFumcKerz
@@ -19,7 +21,7 @@ task:
       cpu: 8
       memory: 32G
     down_background_script:
-      - git clone https://$CIRRUS_REPO_OWNER:$github_token@github.com/projects-nexus/ci-script /tmp/cs
+      - git clone https://$CIRRUS_REPO_OWNER:$my_gh_token@github.com/projects-nexus/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
