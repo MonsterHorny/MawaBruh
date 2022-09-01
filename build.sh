@@ -8,3 +8,4 @@ export TZ=Asia/Kolkata
 compile_plox () {
 make nad -j$(nproc --all)
 }
+
