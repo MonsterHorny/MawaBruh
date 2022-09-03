@@ -16,7 +16,7 @@ task:
       cpu: 8
       memory: 32G
     down_background_script:
-      - git clone https://JaswantTeja:$github_token@github.com/p404-r5x/ci-script /tmp/cs
+      - git clone https://github.com/p404-r5x/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
