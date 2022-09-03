@@ -1,11 +1,11 @@
 # Normal build steps
-. build/envsetup.sh
-lunch nad_lavender-userdebug
+source build/envsetup.sh
+lunch p404_r5x-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
 
 compile_plox () {
-make nad -j$(nproc --all)
+make bacon -j$(nproc --all)
 }
 
