@@ -3,9 +3,8 @@ env: # Environment variables to pass to all tasks
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
 
 # store our secrets here
-    my_gh_token: "ENCRYPTED[!1583ed05b3d7470845a92da5274c76b8c140ca3f15e8414172cb0de4526a6b77ff73bb51302686b48be49a446a5c0346!]"
-    github_token: "ENCRYPTED[!1583ed05b3d7470845a92da5274c76b8c140ca3f15e8414172cb0de4526a6b77ff73bb51302686b48be49a446a5c0346!]"
-    bot_api: "ENCRYPTED[!9ef62d0da4a243b2fab895f7962cd76f296ddc12baac98101f9735ae053c1987f99281e73f87408558f05d6059ca5e2d!]"
+    github_token: "ENCRYPTED[8b7d915eb20be66d9e364427b1be2374fdf7242775d3a99ba65489e8e4abc0cc6e0af30276857fc78feba4d49b1e2c79]"
+    bot_api: "ENCRYPTED[fee8c60964a25c5b387e013f7c0ade2f8eeab87621559d0147828e8e928cc04df9929919c4f047fb020e7366ab300b1e]"
     chat_id: "-1001611036636"
     git_cookies: 0
 
@@ -17,7 +16,7 @@ task:
       cpu: 8
       memory: 32G
     down_background_script:
-      - git clone https://$CIRRUS_REPO_OWNER:$my_gh_token@github.com/p404-r5x/ci-script /tmp/cs
+      - git clone https://JaswantTeja:$github_token@github.com/p404-r5x/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
